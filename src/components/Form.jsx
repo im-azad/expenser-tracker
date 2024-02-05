@@ -12,9 +12,16 @@ export default function Form() {
   );
 
   const dispatch = useDispatch();
+
+  const reset = () => {
+    setName("");
+    setType("");
+    setAmount("");
+  }
   const handleCreate = (e) => {
     e.preventDefault();
     dispatch(createTransaction({ name, type, amount: Number(amount) }));
+    reset();
   };
   return (
     <div className="form">
