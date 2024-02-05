@@ -1,7 +1,7 @@
 import deleteImage from "../../assets/images/delete.svg";
 import editImage from "../../assets/images/edit.svg";
 
-export default function Transaction() {
+export default function Transaction({ transaction }) {
     return (
         <li className="transaction income">
             <p>Earned this month</p>

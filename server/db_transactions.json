@@ -17,6 +17,12 @@
       "type": "income",
       "amount": 400,
       "id": 3
+    },
+    {
+      "name": "Google",
+      "type": "income",
+      "amount": 5000,
+      "id": 4
     }
   ]
 }
