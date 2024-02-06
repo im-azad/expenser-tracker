@@ -9,11 +9,9 @@ function App() {
   return (
     <>
       <Layout>
-
-        <Balance/>
-        <Form/>
-        <Transactions/>
-
+        <Balance />
+        <Form />
+        <Transactions />
       </Layout>
     </>
   );

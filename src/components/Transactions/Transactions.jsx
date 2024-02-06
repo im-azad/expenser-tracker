@@ -16,17 +16,18 @@ export default function Transactions() {
     content = <p>Loading...</p>;
   }
   if (!isLoading && isError) {
-           content = <p className="error">There was and error {transactions.error}</p>;
+    content = <p className="error">There was and error {transactions.error}</p>;
   }
 
   if (!isLoading && !isError && transactions.length === 0) {
-        content =      <p>No transactions found</p>;
+    content = <p>No transactions found</p>;
   }
   if (!isLoading && !isError && transactions.length > 0) {
     content = transactions.map((transaction) => (
       <Transaction key={transaction.id} transaction={transaction} />
     ));
   }
+    
   return (
     <>
       <p className="second_heading " style={{ color: "blue" }}>
