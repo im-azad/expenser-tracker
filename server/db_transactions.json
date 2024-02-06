@@ -35,6 +35,18 @@
       "type": "expense",
       "amount": 1000,
       "id": 6
+    },
+    {
+      "name": "test",
+      "type": "income",
+      "amount": 40044,
+      "id": 7
+    },
+    {
+      "name": "test",
+      "type": "income",
+      "amount": 1400,
+      "id": 8
     }
   ]
 }

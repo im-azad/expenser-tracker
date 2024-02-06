@@ -27,7 +27,7 @@ export default function Transactions() {
       <Transaction key={transaction.id} transaction={transaction} />
     ));
   }
-    
+
   return (
     <>
       <p className="second_heading " style={{ color: "blue" }}>

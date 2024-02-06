@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createTransaction } from "../features/transaction/transactionSlice";
 
@@ -6,10 +6,12 @@ export default function Form() {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [amount, setAmount] = useState("");
+  const [editMode, setEditMode] = useState(false);
 
   const { isLoading, isError, error } = useSelector(
     (state) => state.transaction
   );
+  const {editing} = useSelector((state) => state.transaction);
 
   const dispatch = useDispatch();
 
@@ -17,12 +19,26 @@ export default function Form() {
     setName("");
     setType("");
     setAmount("");
-  }
+  };
   const handleCreate = (e) => {
     e.preventDefault();
     dispatch(createTransaction({ name, type, amount: Number(amount) }));
     reset();
   };
+
+  // listen for edit mode active
+  useEffect(() => {
+    const { id, name, type, amount } = editing || {};
+    if (id) {
+      setEditMode(true);
+      setName(name);
+      setType(type);
+      setAmount(amount);
+    } else {
+      setEditMode(false);
+      reset();
+    }
+  }, [editing]);
   return (
     <div className="form">
       <h3>Add new transaction</h3>
@@ -84,7 +100,7 @@ export default function Form() {
           <p className="error">Something went wrong {error} </p>
         )}
       </form>
-      <button className="btn cancel_edit">Cancel Edit</button>
+      {editMode && <button className="btn cancel_edit">Cancel Edit</button>}
     </div>
   );
 }
