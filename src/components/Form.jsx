@@ -39,6 +39,11 @@ export default function Form() {
 		);
 		reset();
 	};
+
+	const handleCancle = () => {
+		setEditMode(false);
+		reset();
+	};
 	// listen for edit mode active
 	useEffect(() => {
 		const { id, name, type, amount } = editing || {};
@@ -114,7 +119,9 @@ export default function Form() {
 				)}
 			</form>
 			{editMode && (
-				<button className="btn cancel_edit">Cancel Edit</button>
+				<button className="btn cancel_edit" onClick={handleCancle}>
+					Cancel Edit
+				</button>
 			)}
 		</div>
 	);
