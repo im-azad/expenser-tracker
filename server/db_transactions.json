@@ -1,3 +1,10 @@
 {
-  "transactions": []
+  "transactions": [
+    {
+      "name": "facebook.com",
+      "type": "income",
+      "amount": 6000,
+      "id": 1
+    }
+  ]
 }
